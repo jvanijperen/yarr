@@ -5,6 +5,7 @@ project (yarr)
 add_library(yarr_objects OBJECT 
     RandomNumberGenerator.cpp 
     PlainFileDataSource.cpp)
+target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic)
 
 add_executable(yarr main.cpp)
 target_link_libraries(yarr yarr_objects) # as needed
