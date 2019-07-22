@@ -23,12 +23,12 @@ public:
 public:
 	void test_generateWithMaxNegativeNumber(void)
 	{
-		TS_ASSERT_THROWS(rng->generate(-1), std::invalid_argument);
+		TS_ASSERT_THROWS(rng->generate(-1), std::invalid_argument &);
 	}
 
 	void test_generateWithMaxZero(void)
 	{
-		TS_ASSERT_THROWS(rng->generate(0), std::invalid_argument);
+		TS_ASSERT_THROWS(rng->generate(0), std::invalid_argument &);
 	}
 
 	void test_generateWithMaxOne(void)
