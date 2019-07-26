@@ -9,10 +9,10 @@ class PlainFileDataSource : public DataSource
 public:
 	PlainFileDataSource(std::istream &in);
 	~PlainFileDataSource();
-	virtual const std::vector<DataEntry> &getAllDataEntries() const;
+	virtual const std::vector<LineEntry> &getAllDataEntries() const;
 
 private:
-	std::vector<DataEntry> _dataEntryList;
+	std::vector<LineEntry> _dataEntryList;
 };
 
 #endif /* PLAINFILEDATASOURCE_H_ */

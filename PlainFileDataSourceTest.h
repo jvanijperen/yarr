@@ -12,7 +12,7 @@ public:
 	{
 		std::istringstream in("");
 		PlainFileDataSource self(in);
-		const std::vector<DataEntry> &dataEntryList = self.getAllDataEntries();
+		const std::vector<LineEntry> &dataEntryList = self.getAllDataEntries();
 		TS_ASSERT_EQUALS(dataEntryList.size(), 0);
 	}
 
@@ -20,7 +20,7 @@ public:
 	{
 		std::istringstream in("\n\n\n\n\n\n");
 		PlainFileDataSource self(in);
-		const std::vector<DataEntry> &dataEntryList = self.getAllDataEntries();
+		const std::vector<LineEntry> &dataEntryList = self.getAllDataEntries();
 		TS_ASSERT_EQUALS(dataEntryList.size(), 0);
 	}
 
@@ -30,7 +30,7 @@ public:
 		std::istringstream in(lineOne);
 		PlainFileDataSource self(in);
 
-		const std::vector<DataEntry> &dataEntryList = self.getAllDataEntries();
+		const std::vector<LineEntry> &dataEntryList = self.getAllDataEntries();
 
 		TS_ASSERT_EQUALS(dataEntryList.size(), 1);
 		TS_ASSERT_EQUALS(dataEntryList.front().line, lineOne);
@@ -44,7 +44,7 @@ public:
 		multiLineStream << lineOne << "\n" << lineTwo;
 		PlainFileDataSource self(multiLineStream);
 
-		const std::vector<DataEntry> &dataEntryList = self.getAllDataEntries();
+		const std::vector<LineEntry> &dataEntryList = self.getAllDataEntries();
 
 		TS_ASSERT_EQUALS(dataEntryList.size(), 2);
 		TS_ASSERT_EQUALS(dataEntryList[0].line, lineOne);
@@ -63,7 +63,7 @@ public:
 		std::stringstream multiLineStream(lines);
 		PlainFileDataSource self(multiLineStream);
 
-		const std::vector<DataEntry> &dataEntryList = self.getAllDataEntries();
+		const std::vector<LineEntry> &dataEntryList = self.getAllDataEntries();
 
 		TS_ASSERT_EQUALS(dataEntryList.size(), 3);
 		TS_ASSERT_EQUALS(dataEntryList[0].line, "lineOne");

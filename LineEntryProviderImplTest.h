@@ -1,7 +1,7 @@
-#ifndef DATAENTRYPROVIDERIMPLTEST_H_
-#define DATAENTRYPROVIDERIMPLTEST_H_
+#ifndef LINEENTRYPROVIDERIMPLTEST_H_
+#define LINEENTRYPROVIDERIMPLTEST_H_
 
-#include "DataEntryProviderImpl.h"
+#include "LineEntryProviderImpl.h"
 
 #include <cxxtest/TestSuite.h>
 
@@ -9,9 +9,9 @@ class EmptyDataSourceFake : public DataSource
 {
 public:
 	~EmptyDataSourceFake() {}
-	const std::vector<DataEntry> &getAllDataEntries() const
+	const std::vector<LineEntry> &getAllDataEntries() const
 	{
-		static std::vector<DataEntry> emptyVector = { };
+		static std::vector<LineEntry> emptyVector = { };
 		return emptyVector;
 	}
 };
@@ -34,12 +34,12 @@ public:
 	{
 		EmptyDataSourceFake emptyDataSource;
 		NumberGeneratorFake fakeNumberGenerator;
-		DataEntryProviderImpl self(emptyDataSource, fakeNumberGenerator);
+		LineEntryProviderImpl self(emptyDataSource, fakeNumberGenerator);
 
-		DataEntry entry = self.chooseDataEntry();
+		LineEntry entry = self.chooseLineEntry();
 
 		TS_ASSERT_EQUALS(entry.line, "");
 	}
 };
 
-#endif /* DATAENTRYPROVIDERIMPLTEST_H_ */
+#endif /* LINEENTRYPROVIDERIMPLTEST_H_ */
