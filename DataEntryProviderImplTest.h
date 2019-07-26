@@ -16,7 +16,7 @@ public:
 	}
 };
 
-class NumberGeneratorFake : public INumberGenerator
+class NumberGeneratorFake : public NumberGenerator
 {
 public:
 	~NumberGeneratorFake() {}

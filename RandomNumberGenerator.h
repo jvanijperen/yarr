@@ -1,10 +1,10 @@
 #ifndef RANDOMNUMBERGENERATOR_H_
 #define RANDOMNUMBERGENERATOR_H_
 
-#include "INumberGenerator.h"
 #include <random>
+#include "NumberGenerator.h"
 
-class RandomNumberGenerator : public INumberGenerator
+class RandomNumberGenerator : public NumberGenerator
 {
 public:
 	RandomNumberGenerator();

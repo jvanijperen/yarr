@@ -8,7 +8,7 @@
 class RandomNumberGeneratorTest : public CxxTest::TestSuite
 {
 private:
-	INumberGenerator *rng;
+	NumberGenerator *rng;
 public:
 	RandomNumberGeneratorTest()
 	{

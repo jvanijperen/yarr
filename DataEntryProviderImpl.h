@@ -3,18 +3,18 @@
 
 #include "DataEntryProvider.h"
 #include "DataSource.h"
-#include "INumberGenerator.h"
+#include "NumberGenerator.h"
 
 class DataEntryProviderImpl : public DataEntryProvider
 {
 public:
-	DataEntryProviderImpl(DataSource &dataSource, INumberGenerator &numberGenerator);
+	DataEntryProviderImpl(DataSource &dataSource, NumberGenerator &numberGenerator);
 	~DataEntryProviderImpl();
 	virtual DataEntry chooseDataEntry() const;
 
 private:
 	DataSource &dataSource;
-	INumberGenerator &numberGenerator;
+	NumberGenerator &numberGenerator;
 };
 
 #endif /* DATAENTRYPROVIDERIMPL_H_ */
