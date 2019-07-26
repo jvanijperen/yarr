@@ -6,9 +6,6 @@ LineEntryProviderImpl::LineEntryProviderImpl(DataSource &dataSource, NumberGener
 {
 }
 
-LineEntryProviderImpl::~LineEntryProviderImpl() {
-}
-
 LineEntry LineEntryProviderImpl::chooseLineEntry() const {
 	LineEntry dataEntry;
 

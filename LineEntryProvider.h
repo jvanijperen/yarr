@@ -6,9 +6,8 @@
 class LineEntryProvider
 {
 public:
-	virtual ~LineEntryProvider() = 0;
+	virtual ~LineEntryProvider() {};
 	virtual LineEntry chooseLineEntry() const = 0;
 };
-inline LineEntryProvider::~LineEntryProvider() {}
 
 #endif /* LINEENTRYPROVIDER_H_ */

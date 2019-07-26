@@ -9,7 +9,6 @@ class LineEntryProviderImpl : public LineEntryProvider
 {
 public:
 	LineEntryProviderImpl(DataSource &dataSource, NumberGenerator &numberGenerator);
-	~LineEntryProviderImpl();
 	virtual LineEntry chooseLineEntry() const;
 
 private:
