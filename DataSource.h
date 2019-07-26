@@ -8,7 +8,7 @@ class DataSource
 {
 public:
 	virtual ~DataSource() {}
-	virtual const std::vector<LineEntry> &getAllDataEntries() const = 0;
+	virtual const std::vector<LineEntry> &getAllLineEntries() const = 0;
 };
 
 #endif /* DATASOURCE_H_ */

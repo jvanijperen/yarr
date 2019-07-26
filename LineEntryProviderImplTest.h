@@ -9,7 +9,7 @@ class EmptyDataSourceFake : public DataSource
 {
 public:
 	~EmptyDataSourceFake() {}
-	const std::vector<LineEntry> &getAllDataEntries() const
+	const std::vector<LineEntry> &getAllLineEntries() const
 	{
 		static std::vector<LineEntry> emptyVector = { };
 		return emptyVector;
