@@ -1,10 +1,3 @@
-/*
- * PlainFileDataSource.h
- *
- *  Created on: Jul 22, 2019
- *      Author: jvy
- */
-
 #ifndef PLAINFILEDATASOURCE_H_
 #define PLAINFILEDATASOURCE_H_
 
@@ -16,7 +9,7 @@ class PlainFileDataSource : public IDataSource
 public:
 	PlainFileDataSource(std::istream &in);
 	~PlainFileDataSource();
-	virtual std::vector<DataEntry> getAllDataEntries() const;
+	virtual const std::vector<DataEntry> &getAllDataEntries() const;
 
 private:
 	std::vector<DataEntry> _dataEntryList;

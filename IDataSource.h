@@ -8,7 +8,7 @@ class IDataSource
 {
 public:
 	virtual ~IDataSource() = 0;
-	virtual std::vector<DataEntry> getAllDataEntries() const = 0;
+	virtual const std::vector<DataEntry> &getAllDataEntries() const = 0;
 };
 inline IDataSource::~IDataSource() {}
 
