@@ -5,7 +5,7 @@ project (yarr)
 add_library(yarr_objects OBJECT 
     RandomNumberGenerator.cpp 
     PlainFileDataSource.cpp
-    DataEntryProvider.cpp)
+    DataEntryProviderImpl.cpp)
 target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic -Wextra)
 
 add_executable(yarr main.cpp)
@@ -19,6 +19,6 @@ if(CXXTEST_FOUND)
     CXXTEST_ADD_TEST(unittest_yarr CxxTestRunner.cpp
                      ${CMAKE_CURRENT_SOURCE_DIR}/RandomNumberGeneratorTest.h
                      ${CMAKE_CURRENT_SOURCE_DIR}/PlainFileDataSourceTest.h
-                     ${CMAKE_CURRENT_SOURCE_DIR}/DataEntryProviderTest.h)
+                     ${CMAKE_CURRENT_SOURCE_DIR}/DataEntryProviderImplTest.h)
     target_link_libraries(unittest_yarr yarr_objects) # as needed
 endif()

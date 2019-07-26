@@ -1,20 +1,14 @@
 #ifndef DATAENTRYPROVIDER_H_
 #define DATAENTRYPROVIDER_H_
 
-#include "IDataEntryProvider.h"
-#include "IDataSource.h"
-#include "INumberGenerator.h"
+#include "DataEntry.h"
 
-class DataEntryProvider : public IDataEntryProvider
+class DataEntryProvider
 {
 public:
-	DataEntryProvider(IDataSource &dataSource, INumberGenerator &numberGenerator);
-	~DataEntryProvider();
-	virtual DataEntry chooseDataEntry() const;
-
-private:
-	IDataSource &dataSource;
-	INumberGenerator &numberGenerator;
+	virtual ~DataEntryProvider() = 0;
+	virtual DataEntry chooseDataEntry() const = 0;
 };
+inline DataEntryProvider::~DataEntryProvider() {}
 
 #endif /* DATAENTRYPROVIDER_H_ */

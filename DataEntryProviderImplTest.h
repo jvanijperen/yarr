@@ -1,8 +1,9 @@
-#ifndef DATAENTRYPROVIDERTEST_H_
-#define DATAENTRYPROVIDERTEST_H_
+#ifndef DATAENTRYPROVIDERIMPLTEST_H_
+#define DATAENTRYPROVIDERIMPLTEST_H_
+
+#include "DataEntryProviderImpl.h"
 
 #include <cxxtest/TestSuite.h>
-#include "DataEntryProvider.h"
 
 class EmptyDataSourceFake : public IDataSource
 {
@@ -33,7 +34,7 @@ public:
 	{
 		EmptyDataSourceFake emptyDataSource;
 		NumberGeneratorFake fakeNumberGenerator;
-		DataEntryProvider self(emptyDataSource, fakeNumberGenerator);
+		DataEntryProviderImpl self(emptyDataSource, fakeNumberGenerator);
 
 		DataEntry entry = self.chooseDataEntry();
 
@@ -41,4 +42,4 @@ public:
 	}
 };
 
-#endif /* DATAENTRYPROVIDERTEST_H_ */
+#endif /* DATAENTRYPROVIDERIMPLTEST_H_ */
