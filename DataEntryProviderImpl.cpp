@@ -1,6 +1,6 @@
 #include "DataEntryProviderImpl.h"
 
-DataEntryProviderImpl::DataEntryProviderImpl(IDataSource &dataSource, INumberGenerator &numberGenerator)
+DataEntryProviderImpl::DataEntryProviderImpl(DataSource &dataSource, INumberGenerator &numberGenerator)
 : dataSource(dataSource)
 , numberGenerator(numberGenerator)
 {

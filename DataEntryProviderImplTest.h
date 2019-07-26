@@ -5,7 +5,7 @@
 
 #include <cxxtest/TestSuite.h>
 
-class EmptyDataSourceFake : public IDataSource
+class EmptyDataSourceFake : public DataSource
 {
 public:
 	~EmptyDataSourceFake() {}

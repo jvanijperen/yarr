@@ -1,10 +1,10 @@
 #ifndef PLAINFILEDATASOURCE_H_
 #define PLAINFILEDATASOURCE_H_
 
-#include "IDataSource.h"
 #include <istream>
+#include "DataSource.h"
 
-class PlainFileDataSource : public IDataSource
+class PlainFileDataSource : public DataSource
 {
 public:
 	PlainFileDataSource(std::istream &in);
