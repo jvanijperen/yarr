@@ -3,10 +3,8 @@
 
 #include <string>
 
-// Data class
-class LineEntry
+struct LineEntry
 {
-public:
 	std::string line;
 };
 
