@@ -14,9 +14,6 @@ PlainFileDataSource::PlainFileDataSource(std::istream &in)
 	}
 }
 
-PlainFileDataSource::~PlainFileDataSource() {
-}
-
 const std::vector<LineEntry> &PlainFileDataSource::getAllDataEntries() const {
 	return _dataEntryList;
 }

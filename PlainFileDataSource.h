@@ -8,7 +8,6 @@ class PlainFileDataSource : public DataSource
 {
 public:
 	PlainFileDataSource(std::istream &in);
-	~PlainFileDataSource();
 	virtual const std::vector<LineEntry> &getAllDataEntries() const;
 
 private:
