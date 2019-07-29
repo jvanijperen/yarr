@@ -26,6 +26,17 @@ public:
 	}
 };
 
+class SingleDataSourceFake : public DataSource
+{
+public:
+	~SingleDataSourceFake() {}
+	const std::vector<LineEntry> &getAllLineEntries() const
+	{
+		const static std::vector<LineEntry> lineEntries = { {"non-empty"} };
+		return lineEntries;
+	}
+};
+
 
 class DataEntryProviderTest : public CxxTest::TestSuite
 {
@@ -39,6 +50,17 @@ public:
 		LineEntry entry = self.chooseLineEntry();
 
 		TS_ASSERT_EQUALS(entry.line, "");
+	}
+
+	void test_dataSource_providesDataEntry()
+	{
+		SingleDataSourceFake dataSource;
+		NumberGeneratorFake fakeNumberGenerator;
+		LineEntryProviderImpl self(dataSource, fakeNumberGenerator);
+
+		LineEntry entry = self.chooseLineEntry();
+
+		TS_ASSERT_EQUALS(entry.line, "non-empty");
 	}
 };
 

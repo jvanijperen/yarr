@@ -7,7 +7,11 @@ LineEntryProviderImpl::LineEntryProviderImpl(DataSource &dataSource, NumberGener
 }
 
 LineEntry LineEntryProviderImpl::chooseLineEntry() const {
-	LineEntry dataEntry;
-
-	return dataEntry;
+	auto &allEntries = dataSource.getAllLineEntries();
+	if (allEntries.size() == 0) {
+		LineEntry dataEntry;
+		return dataEntry;
+	} else {
+		return allEntries.at(numberGenerator.generate(allEntries.size()));
+	}
 }
