@@ -6,10 +6,11 @@ DirectorySearcherImpl::DirectorySearcherImpl() {
 DirectorySearcherImpl::~DirectorySearcherImpl() {
 }
 
-std::vector<std::filesystem::directory_entry> DirectorySearcherImpl::listAllDataSourceFiles(std::filesystem::directory_entry &directoryToSearch) const {
-	throw std::filesystem::filesystem_error(
-			"Empty path",
-			directoryToSearch.path(),
-			std::error_code()
-	);
+std::vector<std::filesystem::directory_entry> DirectorySearcherImpl::listAllDataSourceFiles(std::filesystem::path &directoryToSearch) const {
+	std::vector<std::filesystem::directory_entry> dataSources;
+
+	for(auto curDirectoryEntry: std::filesystem::directory_iterator(directoryToSearch))
+		dataSources.push_back(curDirectoryEntry);
+
+	return dataSources;
 }
