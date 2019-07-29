@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 
 project (yarr)
+set(CMAKE_CXX_STANDARD 17)
 
 add_library(yarr_objects OBJECT 
     RandomNumberGenerator.cpp 
