@@ -7,7 +7,10 @@ class DirectorySearcherImpl: public DirectorySearcher {
 public:
 	DirectorySearcherImpl();
 	virtual ~DirectorySearcherImpl();
-	std::vector<std::filesystem::directory_entry> listAllDataSourceFiles(std::filesystem::path &directoryToSearch) const;
+	std::vector<std::filesystem::directory_entry> listAllDataSourceFiles(std::filesystem::path &directoryToSearch);
+
+private:
+	std::vector<std::filesystem::directory_entry> dataSources;
 };
 
 #endif /* DIRECTORYSEARCHERIMPL_H_ */

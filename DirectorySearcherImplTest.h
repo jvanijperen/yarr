@@ -123,6 +123,7 @@ public:
 		auto dataSourceFiles = self.listAllDataSourceFiles(dirPath);
 
 		TS_ASSERT_EQUALS(dataSourceFiles.size(), 1);
+		TS_ASSERT_EQUALS(dataSourceFiles.at(0).path(), dataSourceFilePath);
 	}
 };
 
