@@ -127,4 +127,70 @@ public:
 	}
 };
 
+class DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile : public DirectorySearcherImplTestWithTemporaryDirectory
+{
+protected:
+	std::filesystem::path nonDataSourceFilePath;
+public:
+	DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile()
+	{
+		nonDataSourceFilePath = dirPath / "dataSource1.docx";
+		std::fclose(std::fopen(nonDataSourceFilePath.c_str(), "w"));
+	}
+
+	~DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile()
+	{
+		std::filesystem::remove(nonDataSourceFilePath);
+	}
+
+	static DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile* createSuite()
+	{
+		return new DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile();
+	}
+	static void destroySuite(DirectorySearcherImplTestWithTemporaryDirectoryAndNonDataSourceFile* suite)
+	{
+		delete suite;
+	}
+
+	void test_directoryWithOneNonDataSource_returnsEmptyCollection()
+	{
+		auto dataSourceFiles = self.listAllDataSourceFiles(dirPath);
+
+		TS_ASSERT_EQUALS(dataSourceFiles.size(), 0);
+	}
+};
+
+class DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory : public DirectorySearcherImplTestWithTemporaryDirectory
+{
+protected:
+	std::filesystem::path subdirectoryPath;
+public:
+	DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory()
+	{
+		subdirectoryPath = dirPath / "dataSource1.txt";
+		std::filesystem::create_directory(subdirectoryPath);
+	}
+
+	~DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory()
+	{
+		std::filesystem::remove(subdirectoryPath);
+	}
+
+	static DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory* createSuite()
+	{
+		return new DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory();
+	}
+	static void destroySuite(DirectorySearcherImplTestWithTemporaryDirectoryAndSubdirectory* suite)
+	{
+		delete suite;
+	}
+
+	void test_directoryWithOnlySubdirectory_returnsEmptyCollection()
+	{
+		auto dataSourceFiles = self.listAllDataSourceFiles(dirPath);
+
+		TS_ASSERT_EQUALS(dataSourceFiles.size(), 0);
+	}
+};
+
 #endif /* DIRECTORYSEARCHERIMPLTEST_H_ */

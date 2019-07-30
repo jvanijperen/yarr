@@ -10,7 +10,12 @@ std::vector<std::filesystem::directory_entry> DirectorySearcherImpl::listAllData
 {
 	dataSources.clear();
 	for(auto curDirectoryEntry: std::filesystem::directory_iterator(directoryToSearch))
-		dataSources.push_back(curDirectoryEntry);
+		if (isValidDataSource(curDirectoryEntry))
+			dataSources.push_back(curDirectoryEntry);
 
 	return dataSources;
+}
+
+bool DirectorySearcherImpl::isValidDataSource(const std::filesystem::directory_entry &dirEntry) {
+	return (dirEntry.is_regular_file() && dirEntry.path().extension().string() == ".txt");
 }

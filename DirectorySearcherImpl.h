@@ -10,6 +10,9 @@ public:
 	std::vector<std::filesystem::directory_entry> listAllDataSourceFiles(std::filesystem::path &directoryToSearch);
 
 private:
+	bool isValidDataSource(const std::filesystem::directory_entry& dirEntry);
+
+private:
 	std::vector<std::filesystem::directory_entry> dataSources;
 };
 
