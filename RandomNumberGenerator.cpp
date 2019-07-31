@@ -1,9 +1,12 @@
 #include "RandomNumberGenerator.h"
 #include <stdexcept>
+#include <chrono>
+
 
 RandomNumberGenerator::RandomNumberGenerator()
 {
-	rngEngine = new std::default_random_engine(0);
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	rngEngine = new std::default_random_engine(seed);
 }
 
 RandomNumberGenerator::RandomNumberGenerator(int seed)
