@@ -11,7 +11,10 @@ public:
 	virtual const std::vector<LineEntry> &getAllLineEntries() const;
 
 private:
-	std::vector<LineEntry> _dataEntryList;
+	void populateLineEntries(std::istream &in);
+
+private:
+	std::vector<LineEntry> dataEntryList;
 };
 
 #endif /* PLAINFILEDATASOURCE_H_ */
