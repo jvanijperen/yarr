@@ -8,7 +8,7 @@ class DirectorySearcher
 {
 public:
 	virtual ~DirectorySearcher() {}
-	virtual std::vector<std::filesystem::directory_entry> listAllDataSourceFiles(std::filesystem::path &directoryToSearch) = 0;
+	virtual std::vector<std::filesystem::directory_entry> listAllDataSourceFiles(const std::filesystem::path &directoryToSearch) = 0;
 };
 
 #endif /* DIRECTORYSEARCHER_H_ */

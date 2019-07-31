@@ -6,7 +6,7 @@ DirectorySearcherImpl::DirectorySearcherImpl() {
 DirectorySearcherImpl::~DirectorySearcherImpl() {
 }
 
-std::vector<std::filesystem::directory_entry> DirectorySearcherImpl::listAllDataSourceFiles(std::filesystem::path &directoryToSearch)
+std::vector<std::filesystem::directory_entry> DirectorySearcherImpl::listAllDataSourceFiles(const std::filesystem::path &directoryToSearch)
 {
 	dataSources.clear();
 	for(auto curDirectoryEntry: std::filesystem::directory_iterator(directoryToSearch))
