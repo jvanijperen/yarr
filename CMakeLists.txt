@@ -8,6 +8,7 @@ add_library(yarr_objects OBJECT
     PlainFileDataSource.cpp
     LineEntryProviderImpl.cpp
     DirectorySearcherImpl.cpp
+    DataSourcesBuilder.cpp
     )
 target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic -Wextra)
 
