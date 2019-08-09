@@ -25,6 +25,6 @@ DataSource* DataSourcesBuilder::createDataSource(std::filesystem::directory_entr
 {
 	std::ifstream inputStream(dirEntry.path());
 
-	return new PlainFileDataSource(inputStream);
+	return new PlainFileDataSource(dirEntry.path(), inputStream);
 }
 

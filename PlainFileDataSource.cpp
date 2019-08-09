@@ -1,7 +1,15 @@
 #include "PlainFileDataSource.h"
 
 PlainFileDataSource::PlainFileDataSource(std::istream &in)
-: dataEntryList()
+: DataSource("")
+, dataEntryList()
+{
+	populateLineEntries(in);
+}
+
+PlainFileDataSource::PlainFileDataSource(std::string name, std::istream &in)
+: DataSource(name)
+, dataEntryList()
 {
 	populateLineEntries(in);
 }
@@ -21,3 +29,4 @@ void PlainFileDataSource::populateLineEntries(std::istream &in) {
 const std::vector<LineEntry> &PlainFileDataSource::getAllLineEntries() const {
 	return dataEntryList;
 }
+

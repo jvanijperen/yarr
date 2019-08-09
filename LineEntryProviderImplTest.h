@@ -8,6 +8,7 @@
 class EmptyDataSourceFake : public DataSource
 {
 public:
+	EmptyDataSourceFake() : DataSource("") {}
 	~EmptyDataSourceFake() {}
 	const std::vector<LineEntry> &getAllLineEntries() const
 	{
@@ -29,6 +30,7 @@ public:
 class SingleDataSourceFake : public DataSource
 {
 public:
+	SingleDataSourceFake() : DataSource("") {}
 	~SingleDataSourceFake() {}
 	const std::vector<LineEntry> &getAllLineEntries() const
 	{

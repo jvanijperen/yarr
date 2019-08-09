@@ -70,6 +70,28 @@ public:
 		TS_ASSERT_EQUALS(dataEntryList[1].line, "lineTwo");
 		TS_ASSERT_EQUALS(dataEntryList[2].line, "lineThree");
 	}
+
+	void test_namedFile_returnsName()
+	{
+		std::string name = "name";
+		std::istringstream in("");
+		PlainFileDataSource self(name, in);
+		TS_ASSERT_EQUALS(self.getName(), name);
+	}
+
+	void test_namedSingleLineFile_returnsListWithOneEntry()
+	{
+		std::string name = "nameLineOne";
+		std::string lineOne = "lineOne";
+		std::istringstream in(lineOne);
+		PlainFileDataSource self(name, in);
+
+		const std::vector<LineEntry> &dataEntryList = self.getAllLineEntries();
+
+		TS_ASSERT_EQUALS(dataEntryList.size(), 1);
+		TS_ASSERT_EQUALS(dataEntryList.front().line, lineOne);
+	}
+
 };
 
 #endif /* PLAINFILEDATASOURCETEST_H_ */
