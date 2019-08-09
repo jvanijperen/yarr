@@ -3,10 +3,14 @@
 
 #include <cxxtest/TestSuite.h>
 
+#include "DataSourceShowerImpl.h"
+
 class DataSourceShowerImplTest : public CxxTest::TestSuite
 {
+protected:
+	DataSourceShowerImpl *self = nullptr;
 public:
-	void test_empty()
+	void test_createDataSourceShowerImpl()
 	{
 		TS_ASSERT(true);
 	}
