@@ -24,15 +24,6 @@ public:
 		outputStringStream.str("");
 	}
 
-	static DataSourceShowerImplTest* createSuite()
-	{
-		return new DataSourceShowerImplTest();
-	}
-	static void destroySuite(DataSourceShowerImplTest* suite)
-	{
-		delete suite;
-	}
-
 public:
 	void test_showLineWithEmptyLineEntry_showsNoOutput()
 	{
@@ -46,6 +37,34 @@ public:
 		LineEntry filledLineEntry = { "line" };
 		self.showLine(filledLineEntry);
 		TS_ASSERT_EQUALS(outputStringStream.str(), filledLineEntry.line + "\n");
+	}
+};
+
+class DataSourceShowerImplTestWithNoSources : public CxxTest::TestSuite
+{
+protected:
+	std::ostringstream outputStringStream;
+	std::ostream &outStream = outputStringStream;
+	DataSourceShowerImpl self;
+
+public:
+	DataSourceShowerImplTestWithNoSources()
+	: self(outStream)
+	{
+	}
+
+	void setUp()
+	{
+		outputStringStream.str("");
+	}
+
+public:
+	void test_showChoices_withEmptySetOfDataSources_showsBaseText()
+	{
+		DataSourceCollection emptyDataSources;
+		self.showChoices(emptyDataSources);
+
+		TS_ASSERT_EQUALS(outputStringStream.str(), "(H) for help\n(X) to quit\n > ");
 	}
 };
 

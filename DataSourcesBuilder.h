@@ -12,13 +12,13 @@ public:
 	DataSourcesBuilder(std::string dataSourceDirectory);
 	~DataSourcesBuilder();
 
-	std::vector<DataSource *>& get() { return dataSourcesContainer; }
+	DataSourceCollection& get() { return dataSourcesContainer; }
 
 private:
 	DataSource* createDataSource(const std::filesystem::directory_entry dirEntry) const;
 
 private:
-	std::vector<DataSource *> dataSourcesContainer;
+	DataSourceCollection dataSourcesContainer;
 };
 
 #endif /* DATASOURCESBUILDER_H_ */

@@ -10,9 +10,13 @@ public:
 	virtual ~DataSourceShowerImpl();
 
 	virtual void showLine(LineEntry &entry);
+	virtual void showChoices(DataSourceCollection &sources);
 
 private:
 	std::ostream &outStream;
+
+	void printBaseText();
+	void printPrompt();
 };
 
 #endif /* DATASOURCESHOWERIMPL_H_ */

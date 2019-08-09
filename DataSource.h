@@ -18,4 +18,6 @@ private:
 	std::string name;
 };
 
+typedef std::vector<DataSource *> DataSourceCollection;
+
 #endif /* DATASOURCE_H_ */
