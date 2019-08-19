@@ -14,7 +14,7 @@ add_library(yarr_objects OBJECT
     DataSourceShower.cpp
     DataSourceShowerImpl.cpp
     )
-target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic -Wextra)
+target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic -Wextra -g)
 
 add_executable(yarr main.cpp)
 target_link_libraries(yarr yarr_objects stdc++fs) # as needed
