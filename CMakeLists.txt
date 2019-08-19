@@ -13,6 +13,7 @@ add_library(yarr_objects OBJECT
     UserInteractor.cpp
     DataSourceShower.cpp
     DataSourceShowerImpl.cpp
+    ConsoleDataSourceSelector.cpp
     )
 target_compile_options(yarr_objects PUBLIC -Wall -Wpedantic -Wextra -g)
 
@@ -25,6 +26,7 @@ if(CXXTEST_FOUND)
     enable_testing()
 
     CXXTEST_ADD_TEST(unittest_yarr CxxTestRunner.cpp
+                     ${CMAKE_CURRENT_SOURCE_DIR}/ConsoleDataSourceSelectorTest.h
                      ${CMAKE_CURRENT_SOURCE_DIR}/RandomNumberGeneratorTest.h
                      ${CMAKE_CURRENT_SOURCE_DIR}/PlainFileDataSourceTest.h
                      ${CMAKE_CURRENT_SOURCE_DIR}/LineEntryProviderImplTest.h
@@ -33,5 +35,6 @@ if(CXXTEST_FOUND)
                      ${CMAKE_CURRENT_SOURCE_DIR}/UserInteractorTest.h
                      ${CMAKE_CURRENT_SOURCE_DIR}/DataSourceShowerImplTest.h
                      )
+    target_compile_options(unittest_yarr PUBLIC -g)
     target_link_libraries(unittest_yarr yarr_objects stdc++fs) # as needed
 endif()

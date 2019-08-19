@@ -18,9 +18,12 @@ void UserInteractor::run() {
 void UserInteractor::run_loop() {
 	// while(true) {
 //	dataSourceShower.showChoices(dataSourceCache);
-//	auto choice = dataSourceSelector.getChoice(dataSourceCache);
+//	auto choice = dataSourceSelector.getChoice(dataSourceCache.size());
+//	handleChoice(choice);
+//	}
+
+
 //	auto dataSource = dataSourceCache.get(choice);
 //	auto line = dataSource.getLine();
 //	dataSourceShower.showLine(line);
-	// }
 }
