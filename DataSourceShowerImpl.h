@@ -17,6 +17,8 @@ private:
 
 	void printBaseText();
 	void printPrompt();
+	void printSources(std::vector<DataSource*> &sources);
+	std::string getPrintableNameForDataSource(const DataSource *curSource);
 };
 
 #endif /* DATASOURCESHOWERIMPL_H_ */
