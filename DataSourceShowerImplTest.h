@@ -112,27 +112,5 @@ public:
 	}
 };
 
-class DataSourceShowerImplTestWithNoSources : public CxxTest::TestSuite
-{
-protected:
-	std::ostringstream outputStringStream;
-	std::ostream &outStream = outputStringStream;
-	DataSourceShowerImpl self;
-
-public:
-	DataSourceShowerImplTestWithNoSources()
-	: self(outStream)
-	{
-	}
-
-	void setUp()
-	{
-		outputStringStream.str("");
-	}
-
-public:
-};
-
-
 
 #endif /* DATASOURCESHOWERIMPLTEST_H_ */
