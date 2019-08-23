@@ -12,6 +12,8 @@ public:
 	virtual ~ConsoleDataSourceSelector();
 
 	int getChoice();
+	void setNumberDataSources(unsigned int nrDataSources);
+	unsigned int getNumberDataSources();
 
 private:
 	int parseChoice();
@@ -20,6 +22,7 @@ private:
 
 private:
 	std::istream &inStream;
+	unsigned int nrDataSources;
 };
 
 #endif /* CONSOLEDATASOURCESELECTOR_H_ */

@@ -2,6 +2,7 @@
 
 ConsoleDataSourceSelector::ConsoleDataSourceSelector(std::istream &inStream)
 : inStream(inStream)
+, nrDataSources(0)
 {
 }
 
@@ -27,7 +28,20 @@ int ConsoleDataSourceSelector::parseChoice() {
 int ConsoleDataSourceSelector::parseNumericChoice() {
 	int numericChoice;
 	inStream >> numericChoice;
-	return numericChoice;
+	if (inStream.fail()) {
+		return InvalidChoice;
+	}
+	if (numericChoice <= static_cast<long>(nrDataSources))
+		return numericChoice;
+	return InvalidChoice;
+}
+
+void ConsoleDataSourceSelector::setNumberDataSources(unsigned int nrDataSources) {
+	this->nrDataSources = nrDataSources;
+}
+
+unsigned int ConsoleDataSourceSelector::getNumberDataSources() {
+	return nrDataSources;
 }
 
 int ConsoleDataSourceSelector::parseStringChoice() {
